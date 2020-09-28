@@ -81,6 +81,7 @@ void set_rand_result(double& random_result, double result) {
 
 // All counters -----------------------------------------------------------------------------------------------------------------------------------------------------------
 void simple_counter(std::vector<int>& counter_intervals) {
+	
 	for (int i = 0; i < 10; i++) {
 		if (i / 10.0 <= random_double_result && random_double_result < (i + 1) / 10.0) {
 			counter_intervals[i] += 1;
@@ -113,22 +114,31 @@ void other_counter(std::vector<int>& counter_intervals) {
 // All printers -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void simple_printer_result() {
+	double sum = 0;
 	cg = 1000; 
 	for (int i = 0; i < 10; i++) {
 		std::cout << "[0." << i << " ; 0." << i+1 << "]" << "----------" << (float)counter_intervals[i] / cg << std::endl;
+		sum += counter_intervals[i];
 	}
+	std::cout << sum;
 }
 
 void normal_printer_result() {
+	double sum = 0;
 	for (int i = 0; i < 12; i++) {
 		std::cout << "[" << -3 + (i / 2.0) << " ; " << -3 + ((i+1) / 2.0) << "]" << "----------" << (float)counter_intervals[i] / cg << std::endl;
+		sum += counter_intervals[i];
 	}
+	std::cout << sum;
 }
 
 void other_printer_result() {
+	double sum = 0;
 	for (int i = 0; i < 10; i++) {
 		std::cout << "[" << i*10 << " ; " << (i+1)*10 << "]" << "----------" << (float)counter_intervals[i] / cg << std::endl;
+		sum += counter_intervals[i];
 	}
+	std::cout << sum;
 }
 
 
